@@ -9650,7 +9650,15 @@ textarea.form-control {
   -webkit-animation: loader-dash 1.5s ease-in-out infinite;
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
-
+.pict_proj {
+  border-radius: 20px;
+}
+.icons a {
+  color:#FFF;
+}
+.icons a:hover {
+  color:rgba(245, 187, 39, 0.8);
+}
 @-webkit-keyframes loader-rotate {
   100% {
     -webkit-transform: rotate(360deg);
