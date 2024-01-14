@@ -275,3 +275,13 @@
 
 })(jQuery);
 
+function downloadFile(){
+	var link = document.createElement('a');
+	link.href = 'nikola_janjic.pdf';
+	link.download = 'nikola_janjic.pdf';
+
+	document.body.appendChild(link);
+	link.click();
+
+	document.body.removeChild(link);
+}
