@@ -323,7 +323,7 @@ function submitForm(){
 
 	if(brojGresaka == 0){
 		success.innerHTML = "You have successfully sent the email.";
-		danger.style.diplay = "none";
+		danger.style.display = "none";
 		success.style.display = "block";
 		$("#name").val("");
 		$("#email").val("");
