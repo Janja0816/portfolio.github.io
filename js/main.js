@@ -285,3 +285,68 @@ function downloadFile(){
 
 	document.body.removeChild(link);
 }
+
+function submitForm(){
+	var name = document.getElementById("name");
+	var email =  document.getElementById("email");
+	var subject = document.getElementById("subject");
+	var message = document.getElementById("message");
+	var danger = document.getElementById("danger");
+	var success = document.getElementById("success");
+	danger.innerHTML = "";
+	var brojGresaka = 0;
+
+	let checkName = /^[A-ZČĆŽŠĐ][a-zčćžšđ]{2,10}$/;
+	let checkMail = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+	let messageCheck = /[A-z]{3,}/;
+
+	if(!checkName.test(name.value)){
+		let danger = document.getElementById("danger");
+		danger.innerHTML = `<p>The name is not correctly written.</p>`;
+		brojGresaka++;
+	}
+	if(!checkMail.test(email.value)){
+		let danger = document.getElementById("danger");
+		danger.innerHTML += ` <p>Please enter the correct email.</p>`;
+		brojGresaka++;
+	}
+	if(!messageCheck.test(message.value)){
+		let danger = document.getElementById("danger");
+		danger.innerHTML += ` <p>Write a message.</p>`;
+		brojGresaka++;
+	}
+
+	if(brojGresaka != 0){
+		danger.style.display = "block";
+		success.style.display = "none";
+	}
+
+	if(brojGresaka == 0){
+		success.innerHTML = "You have successfully sent the email.";
+		danger.style.diplay = "none";
+		success.style.display = "block";
+		$("#name").val("");
+		$("#email").val("");
+		$("#subject").val("");
+		$("#message").val("");
+
+		$.ajax({
+			type: "POST",
+			url: "php/subjectForm.php",
+			data: {
+				name: $("#name").val(),
+				email: $("#email").val(),
+				subject: $("#subject").val(),
+				message: $("#message").val(),
+				send: true
+			},
+			success: function (response) {
+				console.log(response);
+			},
+			error: function (error) {
+				console.log("Greska je jer GitHub ne podrzava rad sa PHP-om, stavio sam success u divu zbog izgleda.");
+			}
+		});
+	}
+	
+}

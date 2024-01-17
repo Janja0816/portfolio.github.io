@@ -9659,6 +9659,12 @@ textarea.form-control {
 .icons a:hover {
   color:rgba(245, 187, 39, 0.8);
 }
+#success {
+  display: none;
+}
+#danger {
+  display: none;
+}
 @-webkit-keyframes loader-rotate {
   100% {
     -webkit-transform: rotate(360deg);
@@ -9690,3 +9696,4 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
