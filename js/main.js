@@ -344,7 +344,7 @@ function submitForm(){
 				console.log(response);
 			},
 			error: function (error) {
-				console.log("Greska je jer GitHub ne podrzava rad sa PHP-om, stavio sam success u divu zbog izgleda.");
+				console.log("It doesn't work because GitHub doesn't support working with PHP, so I added Success and Errors for a better appearance and functionality of the website.");
 			}
 		});
 	}
